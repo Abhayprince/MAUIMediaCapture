@@ -1,6 +1,13 @@
 ﻿using Android.App;
 using Android.Runtime;
 
+// Required for Pikcing Photo/Video from File System/Storage
+[assembly: UsesPermission(Android.Manifest.Permission.ReadMediaAudio)]
+[assembly: UsesPermission(Android.Manifest.Permission.ReadMediaImages)]
+[assembly: UsesPermission(Android.Manifest.Permission.ReadMediaVideo)]
+[assembly: UsesPermission(Android.Manifest.Permission.ReadExternalStorage, MaxSdkVersion = 32)]
+
+// Required for Capturing Phot/Video using Camera
 [assembly: UsesPermission(Android.Manifest.Permission.Camera)]
 [assembly: UsesPermission(Android.Manifest.Permission.WriteExternalStorage, MaxSdkVersion = 32)]
 

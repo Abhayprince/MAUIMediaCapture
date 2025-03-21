@@ -96,6 +96,28 @@
             // Use some thrid party compnnet/control
             // for example Syncfusion ImageEditor control
         }
+
+        private async void PickPhotoBtn_Clicked(object sender, EventArgs e)
+        {
+            var options = new MediaPickerOptions
+            {
+                Title = "Select Photo"
+            };
+            FileResult? fileResult = await MediaPicker.Default.PickPhotoAsync(options);
+            if(fileResult is null)
+            {
+                await DisplayAlert("Not Selected", "No photo selected", "OK");
+                return;
+            }
+
+            var pickedPhotoPath =  fileResult.FullPath;
+            // Show it on the ui
+            Img.Source = pickedPhotoPath;
+
+            // if video
+            // FileResult? fileResult = await MediaPicker.Default.PickVideoAsync(options);
+            //  Display the video using Community Toolkit MAUI Media Elements
+        }
     }
 
 }
